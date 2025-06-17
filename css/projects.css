@@ -8,6 +8,7 @@
     --card-text-bg: #f9f9f9;
     --live-link-color: #000080;
     --light-border: #eee;
+    --grey-text: #666; /* Defined to fix undefined variable */
 }
 
 body {
@@ -114,8 +115,6 @@ nav ul li a[href="#projects"] {
     width: 80%;
     height: 80%;
     object-fit: contain;
-    filter: invert(100%) saturate(0%);
-    opacity: 0.8;
 }
 
 .project-details {

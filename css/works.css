@@ -113,8 +113,6 @@ nav ul li a[href="works.html"] {
     width: 80%;
     height: 80%;
     object-fit: contain;
-    filter: invert(100%) saturate(0%); /* Consider removing if images look incorrect */
-    opacity: 0.8;
 }
 
 .work-details {

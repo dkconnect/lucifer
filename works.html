@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibyanshu's Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-color: #333;
+            --link-color: #007bff;
+            --bg-color: #f0f0f0;
+            --header-link-color: #3CB371; 
+            --highlight-green: #2e8b57; 
+            --card-bg: #800000; 
+            --card-text-bg: #f9f9f9; 
+            --live-link-color: #000080; 
+            --light-border: #eee;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background-color: #fff;
+            border-bottom: 1px solid var(--light-border);
+            margin-bottom: 40px; 
+        }
+
+        .logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--highlight-green);
+        }
+        .luci-img {
+            height: 40px; 
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--header-link-color);
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--highlight-green);
+        }
+
+        nav ul li a[href="works.html"] { 
+            font-weight: 700; 
+            text-decoration: underline; 
+            text-decoration-color: var(--highlight-green);
+            text-underline-offset: 4px; 
+        }
+
+        .works-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+            padding-bottom: 50px;
+        }
+
+        .work-card { 
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .work-image-container { 
+            width: 100%;
+            height: 150px;
+            background-color: var(--card-bg); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .work-image-container img { 
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            filter: invert(100%) saturate(0%); 
+            opacity: 0.8; 
+        }
+
+        .work-details { 
+            padding: 15px;
+            background-color: var(--card-text-bg);
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .work-title { 
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 0 0 5px;
+            text-align: center;
+        }
+
+        .work-description {
+            font-size: 0.9em;
+            color: var(--grey-text);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .live-link-button {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 8px 15px;
+            background-color: white;
+            color: var(--live-link-color);
+            border: 1px solid var(--live-link-color);
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .live-link-button:hover {
+            background-color: var(--live-link-color);
+            color: white;
+            border-color: var(--live-link-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .works-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .logo {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            nav ul {
+                gap: 10px;
+            }
+            nav ul li a {
+                font-size: 0.9em;
+            }
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+            .work-card {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">luci</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="resume.html">resume</a></li>
+                    <li><a href="projects.html">projects</a></li>
+                    <li><a href="works.html">works</a></li>
+                    <li><a href="updates.html">updates</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="works-grid">
+                <div class="work-card">
+                    <div class="work-image-container">
+                        <img src="https://i.imgur.com/example_design_work.png" alt="Design Work Screenshot">
+                    </div>
+                    <div class="work-details">
+                        <div>
+                            <h3 class="work-title">VARHAD LOGO</h3>
+                            <p class="work-description">
+                                2 LINE DESCRIPTION <br> 2 LINE DESCRIPTION
+                            </p>
+                        </div>
+                        </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image-container">
+                        <img src="https://i.imgur.com/example_design_work.png" alt="Design Work Screenshot">
+                    </div>
+                    <div class="work-details">
+                        <div>
+                            <h3 class="work-title">JITSIE</h3>
+                            <p class="work-description">
+                                2 LINE DESCRIPTION <br> 2 LINE DESCRIPTION
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image-container">
+                        <img src="https://i.imgur.com/example_design_work.png" alt="Design Work Screenshot">
+                    </div>
+                    <div class="work-details">
+                        <div>
+                            <h3 class="work-title">THE LONELY ART</h3>
+                            <p class="work-description">
+                                2 LINE DESCRIPTION <br> 2 LINE DESCRIPTION
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image-container">
+                        <img src="https://i.imgur.com/example_design_work.png" alt="Design Work Screenshot">
+                    </div>
+                    <div class="work-details">
+                        <div>
+                            <h3 class="work-title">UNSTOPPABLE HER</h3>
+                            <p class="work-description">
+                                2 LINE DESCRIPTION <br> 2 LINE DESCRIPTION
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image-container">
+                        <img src="https://i.imgur.com/example_design_work.png" alt="Design Work Screenshot">
+                    </div>
+                    <div class="work-details">
+                        <div>
+                            <h3 class="work-title">HAPPY RIGHT</h3>
+                            <p class="work-description">
+                                2 LINE DESCRIPTION <br> 2 LINE DESCRIPTION
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image-container">
+                        <img src="https://i.imgur.com/example_design_work.png" alt="Design Work Screenshot">
+                    </div>
+                    <div class="work-details">
+                        <div>
+                            <h3 class="work-title">NAME OF DESIGN</h3>
+                            <p class="work-description">
+                                2 LINE DESCRIPTION <br> 2 LINE DESCRIPTION
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image-container">
+                        <img src="https://i.imgur.com/example_design_work.png" alt="Design Work Screenshot">
+                    </div>
+                    <div class="work-details">
+                        <div>
+                            <h3 class="work-title">NAME OF DESIGN</h3>
+                            <p class="work-description">
+                                2 LINE DESCRIPTION <br> 2 LINE DESCRIPTION
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image-container">
+                        <img src="https://i.imgur.com/example_design_work.png" alt="Design Work Screenshot">
+                    </div>
+                    <div class="work-details">
+                        <div>
+                            <h3 class="work-title">NAME OF DESIGN</h3>
+                            <p class="work-description">
+                                2 LINE DESCRIPTION <br> 2 LINE DESCRIPTION
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                </section>
+        </main>
+    </div>
+</body>
+</html>

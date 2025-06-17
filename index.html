@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibyanshu's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-color: #333;
+            --link-color: #007bff;
+            --bg-color: #f0f0f0;
+            --pink: #ff69b4; /* LinkedIn */
+            --orange: #ffa500; /* GitHub */
+            --green: #90ee90; /* Email */
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white; 
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background-color: #fff;
+            border-bottom: 1px solid #eee; 
+        }
+
+        .logo {
+            font-family: 'Inter', sans-serif; 
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #2e8b57; 
+        }
+        .luci-img {
+            height: 40px; 
+            width: auto;
+        }
+
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px; 
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #3CB371; 
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #2e8b57; 
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 0 60px; 
+            gap: 60px; 
+            flex-wrap: wrap; 
+        }
+
+        .hero-text-left,
+        .hero-text-right {
+            text-align: center;
+        }
+
+        .hero-text-left h1,
+        .hero-text-right h2 {
+            margin: 0;
+            font-weight: 400; 
+            font-size: 1.4em; 
+            color: #555; 
+        }
+
+        .hero-text-left h2,
+        .hero-text-right h3 {
+            margin: 5px 0 0;
+            font-size: 3.5em;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #333;
+        }
+        .hero-text-right h3 {
+             font-size: 3.2em; 
+        }
+
+
+        .hero-image-container {
+            position: relative;
+            width: 250px; 
+            height: 250px;
+            border-radius: 50%; 
+            overflow: hidden; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffefd5; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+
+        .hero-image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px; 
+            margin-top: 40px;
+            margin-bottom: 60px; /* Space before description */
+            flex-wrap: wrap;
+        }
+
+        .social-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px; 
+            height: 50px; 
+            border-radius: 8px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .social-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .social-block.linkedin {
+            background-color: var(--pink);
+        }
+        .social-block.github {
+            background-color: var(--orange);
+        }
+        .social-block.email {
+            background-color: var(--green);
+        }
+
+        /* Description Section */
+        .description-section {
+            max-width: 800px;
+            margin: 0 auto 60px; 
+            font-size: 1.1em; 
+            color: #444;
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif; 
+        }
+
+        .description-section h4 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .description-section p {
+            margin-bottom: 1.2em; 
+        }
+
+        .description-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .description-section strong {
+            font-weight: 700;
+            color: #222;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-text-left,
+            .hero-text-right {
+                text-align: center;
+            }
+
+            .hero-image-container {
+                order: -1; 
+                margin-bottom: 20px;
+            }
+
+            .hero-text-left h2,
+            .hero-text-right h3 {
+                font-size: 2.5em; 
+            }
+            .hero-text-right h3 {
+                font-size: 2.2em;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+            nav ul li a {
+                font-size: 1em;
+            }
+            .logo {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .hero-text-left h2,
+            .hero-text-right h3 {
+                font-size: 2em;
+            }
+            .hero-text-right h3 {
+                font-size: 1.8em;
+            }
+            .description-section {
+                font-size: 1em;
+            }
+            .social-block {
+                width: 140px;
+                height: 45px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">luci</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="resume.html">resume</a></li>
+                    <li><a href="projects.html">projects</a></li>
+                    <li><a href="works.html">works</a></li>
+                    <li><a href="updates.html">updates</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <div class="hero-text-left">
+                    <h1>hey. it's me</h1>
+                    <h2>Dibyanshu</h2>
+                </div>
+                <div class="hero-image-container">
+                    <img src="add_image.png" alt="Dibyanshu" />
+                </div>
+                <div class="hero-text-right">
+                    <h2>Undergraduate Student</h2>
+                    <h3>IIT Madras</h3>
+                </div>
+            </section>
+
+            <section class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-block linkedin">
+                    LINKEDIN
+                </a>
+                <a href="https://github.com/yourprofile" target="_blank" class="social-block github">
+                    GITHUB
+                </a>
+                <a href="mailto:your.email@example.com" class="social-block email">
+                    EMAIL
+                </a>
+            </section>
+
+            <section class="description-section">
+                <h4>hey warriors,</h4>
+                <p>
+                    I'm <strong>Dibyanshu</strong> but most people call me <strong>Luci</strong>. I'm currently an undergrad at <strong>IIT Madras</strong>, and I also spend some of my time diving deep into Applied AI at <strong>WorldQuant University</strong>.
+                </p>
+                <p>
+                    I'm passionate about finance and dream of becoming a <strong>Harvey Specter</strong> of Banking who also codes, the kind of guy juggling Excel sheets, building <strong>financial models</strong>, and casually dropping some design magic on the side.
+                </p>
+                <p>
+                    When my code throws an error, I take a deep breath... and learn a little <strong>Latin</strong>.
+                </p>
+                <p>
+                    Oh, and I love <strong>history</strong>, <strong>global politics</strong>, and <strong>literature</strong>.
+                </p>
+                <p>
+                    That's me in a nutshell. Want to talk <strong>shop</strong>, <strong>design</strong>, or maybe a <strong>coffee</strong>? I'm always up for that!
+                </p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

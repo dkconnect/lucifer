@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibyanshu's Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-color: #333;
+            --link-color: #007bff;
+            --bg-color: #f0f0f0;
+            --header-link-color: #3CB371; 
+            --highlight-green: #2e8b57; 
+            --accent-red: #cc0000; 
+            --grey-text: #555;
+            --light-border: #eee;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background-color: #fff;
+            border-bottom: 1px solid var(--light-border);
+            margin-bottom: 30px; 
+        }
+
+        .logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--highlight-green);
+        }
+        .luci-img {
+            height: 40px; 
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--header-link-color);
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--highlight-green);
+        }
+
+        nav ul li a[href="#resume"] {
+            font-weight: 700; 
+            text-decoration: underline; 
+            text-decoration-color: var(--highlight-green);
+            text-underline-offset: 4px; 
+        }
+
+
+        /* Main Resume */
+        .resume-content {
+            display: flex;
+            gap: 40px; 
+            padding-bottom: 50px;
+        }
+
+        .left-column {
+            flex: 1; 
+            padding-right: 20px; 
+            border-right: 1px solid #ccc;
+        }
+
+        .right-column {
+            flex: 1; 
+            padding-left: 20px; 
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8em; 
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Education & Experience */
+        .resume-item {
+            display: flex;
+            align-items: flex-start; 
+            margin-bottom: 30px; 
+            font-family: 'Inter', sans-serif; 
+        }
+
+        .resume-item-logo {
+            flex-shrink: 0; 
+            width: 50px; 
+            height: 50px; 
+            margin-right: 15px;
+            border-radius: 50%; 
+            overflow: hidden; 
+            background-color: #f5f5f5; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .resume-item-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            object-fit: contain; 
+        }
+
+        .resume-item-details {
+            flex-grow: 1; 
+        }
+
+        .resume-item-details h3 {
+            margin: 0;
+            font-size: 1.15em; 
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .resume-item-details p {
+            margin: 0;
+            font-size: 0.95em;
+            color: var(--grey-text);
+        }
+
+        .resume-item-details .degree-role {
+            font-weight: 500;
+            color: var(--highlight-green);
+            margin-bottom: 3px;
+        }
+
+        .resume-item-details .date {
+            color: var(--accent-red); 
+            font-weight: 400;
+            font-size: 0.9em;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 15px 30px;
+            margin-top: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05em;
+            color: var(--grey-text);
+        }
+
+        .skills-grid span {
+            display: block; 
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .resume-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid #ccc; 
+                padding-right: 0;
+                padding-bottom: 30px; 
+            }
+
+            .right-column {
+                padding-left: 0;
+            }
+
+            .section-title {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr; 
+                text-align: center;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .logo {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            nav ul {
+                gap: 10px;
+            }
+            nav ul li a {
+                font-size: 0.9em;
+            }
+            .section-title {
+                font-size: 1.5em;
+            }
+            .resume-item-logo {
+                width: 40px;
+                height: 40px;
+            }
+            .resume-item-details h3 {
+                font-size: 1em;
+            }
+            .resume-item-details p {
+                font-size: 0.85em;
+            }
+            .skills-grid {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">luci</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="resume.html">resume</a></li>
+                    <li><a href="projects.html">projects</a></li>
+                    <li><a href="works.html>works</a></li>
+                    <li><a href="updates.html">updates</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="resume-content">
+            <section class="left-column">
+                <h2 class="section-title">Education</h2>
+
+                <div class="resume-item">
+                    <div class="resume-item-logo">
+                        <img src="assets/images/iitm_logo.png" alt="IIT Madras Logo">
+                    </div>
+                    <div class="resume-item-details">
+                        <h3>INDIAN INSTITUTE OF TECHNOLOGY MADRAS</h3>
+                        <p class="degree-role">BACHELOR'S DEGREE</p>
+                        <p class="date">GRADUATING AUGUST 2027</p>
+                    </div>
+                </div>
+
+                <div class="resume-item">
+                    <div class="resume-item-logo">
+                        <img src="assets/images/wqu_logo.jpg" alt="WorldQuant University Logo">
+                    </div>
+                    <div class="resume-item-details">
+                        <h3>WORLDQUANT UNIVERSITY</h3>
+                        <p class="degree-role">APPLIED AI LAB</p>
+                        <p class="date">GRADUATING JUNE 2025</p>
+                    </div>
+                </div>
+
+                <div class="resume-item">
+                    <div class="resume-item-logo">
+                        <img src="assets/images/McKinseyc.jpg" alt="McKinsey & Company Logo">
+                    </div>
+                    <div class="resume-item-details">
+                        <h3>MCKINSEY & COMPANY</h3>
+                        <p class="degree-role">FORWARD PROGRAMME</p>
+                        <p class="date">GRADUATING JUNE 2025</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <span>PYTHON</span>
+                    <span>CRYPTOGRAPHY</span>
+                    <span>JAVASCRIPT</span>
+                    <span>QUANT MODELLING</span>
+                    <span>FINANCIAL MODELLING</span>
+                    <span>MICROSOFT EXCEL</span>
+                    <span>FINANCIAL ANALYSIS</span>
+                    <span>MS OFFICE</span>
+                    <span>GOOGLE SUITE</span>
+                </div>
+            </section>
+
+            <section class="right-column">
+                <h2 class="section-title">Experience</h2>
+
+                <h3 class="section-title" style="font-size: 1.4em; margin-top: 0; margin-bottom: 20px;">Work Experience</h3>
+
+                <div class="resume-item">
+                    <div class="resume-item-logo">
+                        <img src="assets/images/jitsie.png" alt="Jitsie Logo">
+                    </div>
+                    <div class="resume-item-details">
+                        <h3>JITSIE, IIT MADRAS</h3>
+                        <p class="degree-role">GRAPHIC DESIGNER & PLANNER</p>
+                        <p class="date">JANUARY 2025 - PRESENT</p>
+                    </div>
+                </div>
+
+                <div class="resume-item">
+                    <div class="resume-item-logo">
+                        <img src="assets/images/business.io.jpg" alt="Business.IO Logo">
+                    </div>
+                    <div class="resume-item-details">
+                        <h3>BUSINESS.IO</h3>
+                        <p class="degree-role">RESEARCH CONSULTANT</p>
+                        <p class="date">JANUARY 2025 - MARCH 2025</p>
+                    </div>
+                </div>
+
+                <h3 class="section-title" style="font-size: 1.4em; margin-top: 30px; margin-bottom: 20px;">Volunteer Experience</h3>
+
+                <div class="resume-item">
+                    <div class="resume-item-logo">
+                        <img src="assets/images/nasa.png" alt="NASA Space Apps Logo">
+                    </div>
+                    <div class="resume-item-details">
+                        <h3>NASA SPACE APPS 2025</h3>
+                        <p class="degree-role">REGIONAL COORDINATOR</p>
+                        <p class="date">JUNE 2025 - PRESENT</p>
+                    </div>
+                </div>
+
+                <div class="resume-item">
+                    <div class="resume-item-logo">
+                        <img src="assets/images/synapse.png" alt="Synapse Society Logo">
+                    </div>
+                    <div class="resume-item-details">
+                        <h3>SYNAPSE SOCIETY, IIT MADRAS</h3>
+                        <p class="degree-role">DEPARTMENT HEAD, HISTORY</p>
+                        <p class="date">JANUARY 2025 - PRESENT</p>
+                    </div>
+                </div>
+
+                <div class="resume-item">
+                    <div class="resume-item-logo">
+                        <img src="assets/images/esports.jpg" alt="Esports Club Logo">
+                    </div>
+                    <div class="resume-item-details">
+                        <h3>ESPORTS CLUB, IIT MADRAS</h3>
+                        <p class="degree-role">COMMUNITY MODERATOR</p>
+                        <p class="date">JUNE 2024 - SEPTEMBER 2024</p>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -4,10 +4,10 @@
     --bg-color: #f0f0f0;
     --header-link-color: #3CB371;
     --highlight-green: #2e8b57;
-    --card-bg: #800000;
     --card-text-bg: #f9f9f9;
     --live-link-color: #000080;
     --light-border: #eee;
+    --grey-text: #666; /* Defined to fix undefined variable */
 }
 
 body {
@@ -102,7 +102,6 @@ nav ul li a[href="works.html"] {
 .work-image-container {
     width: 100%;
     height: 150px;
-    background-color: var(--card-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,7 +113,7 @@ nav ul li a[href="works.html"] {
     width: 80%;
     height: 80%;
     object-fit: contain;
-    filter: invert(100%) saturate(0%);
+    filter: invert(100%) saturate(0%); /* Consider removing if images look incorrect */
     opacity: 0.8;
 }
 

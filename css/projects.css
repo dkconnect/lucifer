@@ -1,14 +1,16 @@
 :root {
     --text-color: #333;
-    --link-color: #007bff;
-    --bg-color: #f0f0f0;
+    --link-color: #007bff; /* This variable isn't directly used for new links, but kept */
+    --bg-color: #f0f0f0; /* This variable isn't directly used for new links, but kept */
     --header-link-color: #3CB371;
     --highlight-green: #2e8b57;
     --card-bg: #ffffff;
     --card-text-bg: #f9f9f9;
-    --live-link-color: #000080;
+    --live-link-color: #000080; /* Navy blue for live demo buttons */
     --light-border: #eee;
-    --grey-text: #666; /* Defined to fix undefined variable */
+    --grey-text: #666;
+    --github-color: #333; /* Dark gray for GitHub */
+    --paper-color: #dc3545; /* Reddish for paper/document */
 }
 
 body {
@@ -46,10 +48,13 @@ header {
     color: var(--highlight-green);
 }
 
+/* .luci-img is not used in HTML, can be removed if not needed elsewhere */
+/*
 .luci-img {
     height: 40px;
     width: auto;
 }
+*/
 
 nav ul {
     list-style: none;
@@ -71,7 +76,8 @@ nav ul li a:hover {
     color: var(--highlight-green);
 }
 
-nav ul li a[href="#projects"] {
+/* Updated selector for active page highlighting */
+nav ul li.active-page a {
     font-weight: 700;
     text-decoration: underline;
     text-decoration-color: var(--highlight-green);
@@ -104,7 +110,7 @@ nav ul li a[href="#projects"] {
 .project-image-container {
     width: 100%;
     height: 150px;
-    background-color: var(--card-bg);
+    background-color: var(--card-bg); /* Or a specific light background for images */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,8 +128,8 @@ nav ul li a[href="#projects"] {
     background-color: var(--card-text-bg);
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    justify-content: space-between;
+    flex-grow: 1; /* Ensures this section takes available height */
+    justify-content: space-between; /* Pushes buttons to the bottom */
 }
 
 .project-title {
@@ -137,33 +143,70 @@ nav ul li a[href="#projects"] {
 .project-description {
     font-size: 0.9em;
     color: var(--grey-text);
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Space before the links */
     line-height: 1.4;
     text-align: center;
 }
 
-.live-link-button {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 8px 15px;
-    background-color: white;
-    color: var(--live-link-color);
-    border: 1px solid var(--live-link-color);
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 0.9em;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+/* New styles for project links container and buttons */
+.project-links {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 10px; /* Space between buttons */
+    margin-top: auto; /* Push to the bottom of the flex container */
+    padding-top: 15px; /* Space from description above */
+    border-top: 1px solid var(--light-border); /* Subtle line above buttons */
 }
 
-.live-link-button:hover {
-    background-color: var(--live-link-color);
+.project-link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Fixed width for icon buttons */
+    height: 40px; /* Fixed height for icon buttons */
+    border-radius: 50%; /* Make them circular */
+    text-decoration: none;
+    font-size: 1.2em; /* Icon size */
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    border: 1px solid var(--grey-text); /* Default border */
+    color: var(--grey-text); /* Default icon color */
+}
+
+.project-link-button:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Specific colors and hovers for each button type */
+.project-link-button.github {
+    color: var(--github-color);
+    border-color: var(--github-color);
+}
+
+.project-link-button.github:hover {
+    background-color: var(--github-color);
     color: white;
+}
+
+.project-link-button.live-demo {
+    color: var(--live-link-color);
     border-color: var(--live-link-color);
 }
+
+.project-link-button.live-demo:hover {
+    background-color: var(--live-link-color);
+    color: white;
+}
+
+.project-link-button.paper {
+    color: var(--paper-color);
+    border-color: var(--paper-color);
+}
+
+.project-link-button.paper:hover {
+    background-color: var(--paper-color);
+    color: white;
+}
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -196,11 +239,19 @@ nav ul li a[href="#projects"] {
         font-size: 0.9em;
     }
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stacks cards vertically */
     }
     .project-card {
-        max-width: 300px;
-        margin: 0 auto;
+        max-width: 300px; /* Keeps cards from becoming too wide on small screens */
+        margin: 0 auto; /* Centers the stacked cards */
+    }
+    .project-link-button {
+        width: 35px; /* Slightly smaller buttons on tiny screens */
+        height: 35px;
+        font-size: 1.1em;
+    }
+    .project-links {
+        padding-top: 10px;
     }
 }
 

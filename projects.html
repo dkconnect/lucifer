@@ -6,201 +6,317 @@
     <title>Dibyanshu's Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/projects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/my_profile.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+        body {
+            font-family: 'Courier Prime', monospace;
+            background-color: #F0F0F0; 
+            color: #000000; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px; 
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #A8FF60; 
+            border-radius: 20px; 
+            display: flex;
+            justify-content: center;
+            padding: 10px 20px;
+            margin: 0 auto 30px auto;
+            width: fit-content;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.1em;
+            font-weight: bold;
+            white-space: nowrap;
+            display: block;
+        }
+
+        .nav-line {
+            border: none;
+            border-top: 1px solid #C0C0C0; 
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin-top: 50px;
+            padding-bottom: 50px; 
+            justify-content: center; 
+        }
+
+        .project-card {
+            border: 1px solid #000000; 
+            border-radius: 40px; 
+            background-color: #FFFFFF; 
+            padding: 15px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .project-card .image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 35px; 
+            overflow: hidden; 
+        }
+
+        .project-card .image-container a { 
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            border-radius: inherit; 
+            transition: filter 0.3s ease; 
+        }
+
+        .project-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            opacity: 0;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            border-radius: inherit; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+            pointer-events: none; 
+        }
+
+        .project-card .overlay p {
+            color: #FFFFFF; 
+            font-size: 1.1em;
+            font-weight: bold;
+            margin: 0; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+            text-align: center;
+        }
+
+        .project-card .image-container:hover .overlay {
+            background-color: rgba(0, 0, 0, 0.6); 
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .project-card .project-title {
+            margin-top: 15px; 
+            font-size: 1.5em; 
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .project-card .project-title a {
+            color: #000000; 
+            text-decoration: none; 
+        }
+
+        .project-card .project-title a:hover {
+            text-decoration: underline; 
+        }
+
+        @media (max-width: 1024px) { 
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                max-width: 95%;
+                padding: 8px 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr; 
+                gap: 20px;
+            }
+
+            .project-card {
+                padding: 10px;
+                border-radius: 30px; 
+            }
+            .project-card .image-container {
+                 border-radius: 25px; 
+            }
+            .project-card .project-title {
+                font-size: 1.3em; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">luci</div>
+            <h1>Dibyanshu</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">home</a></li>
-                    <li><a href="resume.html">resume</a></li>
-                    <li class="active-page"><a href="projects.html">projects</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="projects.html">projects</a></li>
                     <li><a href="designs.html">designs</a></li>
-                    <li><a href="updates.html">updates</a></li>
+                    <li><a href="#">updates</a></li>
                 </ul>
             </nav>
+            <hr class="nav-line">
         </header>
 
-        <main>
-            <section class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/projects/DOS.png" alt="DOS Defender Screenshot">
-                    </div>
-                    <div class="project-details">
-                        <div>
-                            <h3 class="project-title">DOS DEFENDER</h3>
-                            <p class="project-description">
-                                hola amigos
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://dos-defender.vercel.app/" target="_blank" class="project-link-button live-demo" title="Live Demo">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                            <a href="https://github.com/dkconnect/dos-defender" target="_blank" class="project-link-button github" title="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            </div>
+        <main class="projects-grid">
+            <div class="project-card">
+                <div class="image-container">
+                    <a href="abcd.html"> 
+                        <img src="assets/projects/DOS.png" alt="dos_defender">
+                    </a>
+                    <div class="overlay">
+                        <p>Hola Amigos</p>
                     </div>
                 </div>
-               
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/projects/morses-ss.png" alt="Morses App Screenshot">
-                    </div>
-                    <div class="project-details">
-                        <div>
-                            <h3 class="project-title">MORSES</h3>
-                            <p class="project-description">
-                                Browser-based Text to Morse Code Convertor and vice versa. I have few more ideas that I wanna implement like a learning section and also a merch with design created using Morse Code.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://morses.vercel.app/" target="_blank" class="project-link-button live-demo" title="Live Demo">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                            <a href="https://github.com/dkconnect/morses" target="_blank" class="project-link-button github" title="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-               
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/projects/img2xlsx.png" alt="IMG 2 XLSX App Screenshot">
-                    </div>
-                    <div class="project-details">
-                        <div>
-                            <h3 class="project-title">IMG 2 XLSX</h3>
-                            <p class="project-description">
-                                <strong>[Under Development]</strong> Upload your image and turn it into pixel art with coloured cells in Excel. It has no contribution to humanity anyway haha.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://img2xlsx.vercel.app/" target="_blank" class="project-link-button live-demo" title="Live Demo">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                            <a href="https://github.com/dkconnect/img2xlsx" target="_blank" class="project-link-button github" title="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-               
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/projects/KinkXKnow.png" alt="KINK x KNOW App Screenshot">
-                    </div>
-                    <div class="project-details">
-                        <div>
-                            <h3 class="project-title">KINK x KNOW</h3>
-                            <p class="project-description">
-                                <strong>[Under Development]</strong> Kink x Know is an interactive web app that helps you explore your BDSM preferences. Answer questions with sliders to get personalized style results, complete with descriptions and tips, for fun and consensual self-discovery.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://kinkxknow.vercel.app/" target="_blank" class="project-link-button live-demo" title="Live Demo">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                            <a href="https://github.com/dkconnect/kinkxknow" target="_blank" class="project-link-button github" title="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="project-title">
+                    <a href="abcd.html">DOS Defender</a> </h3>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/projects/Tetris_AI.png" alt="Tetris AI Screenshot">
-                    </div>
-                    <div class="project-details">
-                        <div>
-                            <h3 class="project-title">TETRIS AI</h3>
-                            <p class="project-description">
-                                The Tetris AI is a visually stunning game which features intelligent AI gameplay and a modern design, offering both AI demonstration and manual play.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://ai-tetris.vercel.app/" target="_blank" class="project-link-button live-demo" title="Live Demo">
-                                <i class="fas fa-globe"></i>
-                            </a>
-                            <a href="https://github.com/dkconnect/ai-tetris" target="_blank" class="project-link-button github" title="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://addinglink.com" target="_blank" class="project-link-button paper" title="View Paper">
-                                <i class="fas fa-file-alt"></i>
-                            </a>
-                        </div>
+            <div class="project-card">
+                <div class="image-container">
+                    <a href="abcd.html">
+                        <img src="assets/projects/morses-ss.png" alt="morses">
+                    </a>
+                    <div class="overlay">
+                        <p>Morses</p>
                     </div>
                 </div>
+                <h3 class="project-title">
+                    <a href="abcd.html">Morses</a>
+                </h3>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="assets/projects/nasa.jpg" alt="The Solar Space Project Screenshot">
-                    </div>
-                    <div class="project-details">
-                        <div>
-                            <h3 class="project-title">THE SOLAR SPACE</h3>
-                            <p class="project-description">
-                                This was my submission for the Nasa Space Apps 2024. Made Using Javascript.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                             <a href="https://github.com/dkconnect/the-solar-space" target="_blank" class="project-link-button github" title="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+            <div class="project-card">
+                <div class="image-container">
+                    <a href="abcd.html">
+                        <img src="assets/projects/img2xlsx.png" alt="IMG2XLSX">
+                    </a>
+                    <div class="overlay">
+                        <p>Upload your image and turn it into pixel art with coloured cells in Excel. It has no contribution to humanity anyway haha.</p>
                     </div>
                 </div>
+                <h3 class="project-title">
+                    <a href="abcd.html">IMG 2 XLSX</a>
+                </h3>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="https://via.placeholder.com/200x150?text=STOCK+TRADER" alt="Stock Trader App Screenshot"> </div>
-                    <div class="project-details">
-                        <div>
-                            <h3 class="project-title">STOCK TRADER</h3>
-                            <p class="project-description">
-                                A description for your stock trading application. Explain its features and purpose here.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/dkconnect/stock-trader" target="_blank" class="project-link-button github" title="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+            <div class="project-card">
+                <div class="image-container">
+                    <a href="abcd.html">
+                        <img src="assets/projects/KinkXKnow.png" alt="kinkxknow">
+                    </a>
+                    <div class="overlay">
+                        <p>Kink x Know is an interactive web app that helps you explore your BDSM preferences. Answer questions with sliders to get personalized style results, complete with descriptions and tips, for fun and consensual self-discovery.</p>
                     </div>
                 </div>
+                <h3 class="project-title">
+                    <a href="abcd.html">KINK x KNOW</a>
+                </h3>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-image-container">
-                        <img src="https://via.placeholder.com/200x150?text=MERGERS+DEAL" alt="Mergers Deal App Screenshot"> </div>
-                    <div class="project-details">
-                        <div>
-                            <h3 class="project-title">MERGERS DEAL</h3>
-                            <p class="project-description">
-                                This is where you can describe your Mergers Deal project. Highlight its functionalities.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/dkconnect/mergers-deal" target="_blank" class="project-link-button github" title="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+            <div class="project-card">
+                <div class="image-container">
+                    <a href="abcd.html">
+                        <img src="assets/projects/Tetris_AI.png" alt="tetris_ai">
+                    </a>
+                    <div class="overlay">
+                        <p>The Tetris AI is a visually stunning game which features intelligent AI gameplay and a modern design, offering both AI demonstration and manual play.</p>
                     </div>
                 </div>
-            </section>
+                <h3 class="project-title">
+                    <a href="abcd.html">Tetris AI</a>
+                </h3>
+            </div>
+
+            <div class="project-card">
+                <div class="image-container">
+                    <a href="abcd.html">
+                        <img src="assets/projects/nasa.jpg" alt="solarspace">
+                    </a>
+                    
+                    <div class="overlay">
+                        <p>This was my submission for the Nasa Space Apps 2024. Made Using Javascript.</p>
+                    </div>
+                </div>
+                <h3 class="project-title">
+                    <a href="abcd.html">The Solar Space</a>
+                </h3>
+            </div>
         </main>
-        <footer class="footer">
-            <p>Designed by <a href="https://github.com/dkconnect" target="_blank" class="lucifer-link"><strong>Lucifer</strong></a></p>
-            <p>2025</p>
-        </footer>
     </div>
 </body>
 </html>

@@ -6,14 +6,212 @@
     <title>Dibyanshu's Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/my_profile.png" type="image/png">
+    <style>
+        
+        body {
+            font-family: 'Courier Prime', monospace;
+            background-color: #F0F0F0; 
+            color: #000000; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px; 
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 30px auto; 
+            display: flex;
+            justify-content: center;
+            gap: 15px; 
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            padding: 8px 18px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            display: inline-block; 
+        }
+
+        nav ul li:nth-child(1) a,
+        nav ul li:nth-child(3) a, 
+        nav ul li:nth-child(5) a { 
+            background-color: #A8FF60; 
+        }
+
+        nav ul li:nth-child(2) a, 
+        nav ul li:nth-child(4) a { 
+            background-color: #FFFF60; 
+        }
+
+        .nav-line {
+            border: none;
+            border-top: 1px solid #C0C0C0; 
+            width: 100%;
+            margin-bottom: 50px; 
+        }
+
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 50px;
+            flex-wrap: wrap; 
+        }
+
+        .hero-section .left-text,
+        .hero-section .right-text {
+            text-align: left; 
+        }
+
+        .hero-section .left-text .hey-it-me {
+            font-size: 1.2em;
+            margin-bottom: -10px; 
+        }
+
+        .hero-section .left-text .name {
+            font-size: 2.5em;
+            font-weight: bold; 
+        }
+
+        .hero-section .right-text .student-status {
+            font-size: 1.2em;
+            margin-bottom: -10px;
+        }
+
+        .hero-section .right-text .institution {
+            font-size: 2.5em;
+            font-weight: bold; 
+        }
+
+        .profile-pic-container {
+            width: 180px;
+            height: 180px;
+            background-color: #FFCC60; 
+            border-radius: 30px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .profile-pic-container img {
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 30px; 
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .social-button {
+            text-decoration: none;
+            color: #FFFFFF;
+            background-color: #FF6699; 
+            padding: 12px 25px;
+            border-radius: 20px; 
+            font-size: 1.1em;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .description {
+            text-align: left;
+            line-height: 1.6;
+            font-size: 1.1em;
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
+
+        .description .greeting {
+            margin-bottom: 20px;
+        }
+
+        .description p {
+            margin-bottom: 15px; 
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-section .left-text,
+            .hero-section .right-text {
+                text-align: center; 
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 1em;
+                padding: 6px 15px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .social-button {
+                width: fit-content;
+                margin: 0 auto; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-section .left-text .name,
+            .hero-section .right-text .institution {
+                font-size: 2em;
+            }
+
+            .description {
+                font-size: 1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">luci</div>
+            <h1>Dibyanshu</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">home</a></li>
@@ -23,59 +221,36 @@
                     <li><a href="updates.html">updates</a></li>
                 </ul>
             </nav>
+            <hr class="nav-line">
         </header>
 
         <main>
             <section class="hero-section">
-                <div class="hero-text-left">
-                    <h1>hey. it's me</h1>
-                    <h2>Dibyanshu</h2>
+                <div class="left-text">
+                    <p class="hey-it-me">hey It's Me</p>
+                    <p class="name">Dibyanshu</p>
                 </div>
-                <div class="hero-image-container">
+                <div class="profile-pic-container">
                     <img src="assets/images/my_profile.png" alt="Dibyanshu" />
                 </div>
-                <div class="hero-text-right">
-                    <h2>Undergraduate Student</h2>
-                    <h3>IIT Madras</h3>
+                <div class="right-text">
+                    <p class="student-status">Undergraduate Student</p>
+                    <p class="institution">IIT Madras</p>
                 </div>
             </section>
 
             <section class="social-links">
-                <a href="https://linkedin.com/in/dibyanshu-kumar" target="_blank" class="social-block linkedin">
-                    LINKEDIN
-                </a>
-                <a href="https://github.com/dkconnect" target="_blank" class="social-block github">
-                    GITHUB
-                </a>
-                <a href="mailto:dkroyals1001@gmail.com" class="social-block email">
-                    EMAIL
-                </a>
+                <a href="https://linkedin.com/in/dibyanshu-kumar" class="social-button" target="_blank">LINKEDIN</a>
+                <a href="https://github.com/dkconnect" class="social-button" target="_blank">GITHUB</a>
+                <a href="mailto:dkroyals1001@gmail.com" class="social-button">EMAIL</a>
             </section>
-
-            <section class="description-section">
-                <h4>hey warriors,</h4>
-                <p>
-                    I'm <strong>Dibyanshu</strong> but most people call me <strong>Luci</strong>. I'm currently an undergrad at <strong>IIT Madras</strong>, and I also spend some of my time diving deep into Applied AI at <strong>WorldQuant University</strong>.
-                </p>
-                <p>
-                    I'm passionate about finance and dream of becoming a <strong>Harvey Specter</strong> of Banking who also codes, the kind of guy juggling Excel sheets, building <strong>financial models</strong>, and casually dropping some design magic on the side.
-                </p>
-                <p>
-                    When my code throws an error, I take a deep breath... and learn a little <strong>Latin</strong>.
-                </p>
-                <p>
-                    Oh, and I love <strong>history</strong>, <strong>global politics</strong>, and <strong>literature</strong>.
-                </p>
-                <p>
-                    That's me in a nutshell. Want to talk <strong>shop</strong>, <strong>design</strong>, or maybe a <strong>coffee</strong>? I'm always up for that!
-                </p>
+            
+            <section class="description">
+                <p class="greeting">hey warriors,</p>
+                <p>I'm Dibyanshu but most people call me Luci. I'm currently an undergrad at IIT Madras, and I also spend some of my time diving deep into Applied AI at WorldQuant University.</p>
+                <p>I'm passionate about finance and dream of becoming a Harvey Specter of Banking who also codes, the kind of guy juggling Excel sheets, building financial models, and casually dropping some design magic on the side.</p>
             </section>
         </main>
-        <footer class="footer">
-            <p>Designed by <a href="https://github.com/dkconnect" target="_blank" class="lucifer-link"><strong>Lucifer</strong></a></p>
-            <p>2025</p>
-        </footer>
-        
     </div>
 </body>
 </html>

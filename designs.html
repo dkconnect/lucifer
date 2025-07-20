@@ -6,275 +6,471 @@
     <title>Dibyanshu's Designs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/designs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/my_profile.png" type="image/png">
+    <style>
+
+        body {
+            font-family: 'Courier Prime', monospace;
+            background-color: #F0F0F0;
+            color: #000000;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #A8FF60;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 10px 20px;
+            margin: 0 auto 30px auto;
+            width: fit-content;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.1em;
+            font-weight: bold;
+            white-space: nowrap;
+            display: block;
+        }
+
+        .nav-line {
+            border: none;
+            border-top: 1px solid #C0C0C0;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .designs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            padding-bottom: 50px;
+            justify-content: center;
+        }
+
+        .design-card {
+            border: 1px solid #000000;
+            border-radius: 40px;
+            background-color: #FFFFFF;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .design-card .image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 35px;
+            overflow: hidden;
+            cursor: pointer; 
+        }
+
+        .design-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit;
+            transition: filter 0.3s ease;
+        }
+
+        .design-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            opacity: 0;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            border-radius: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+            pointer-events: none; 
+        }
+
+        .design-card .overlay h4 {
+            color: #FFFFFF;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .design-card .overlay p {
+            color: #FFFFFF;
+            font-size: 1em;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .design-card .image-container:hover .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 1;
+        }
+
+        .design-card .design-title {
+            margin-top: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            z-index: 1;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .designs-grid {
+                grid-template-columns: repeat(auto-fit, minminmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                max-width: 95%;
+                padding: 8px 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .designs-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .design-card {
+                padding: 10px;
+                border-radius: 30px;
+            }
+            .design-card .image-container {
+                 border-radius: 25px;
+            }
+            .design-card .design-title {
+                font-size: 1.3em;
+            }
+            .design-card .overlay h4 {
+                font-size: 1.1em;
+            }
+            .design-card .overlay p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            .close-button {
+                font-size: 30px;
+                top: 15px;
+                right: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">luci</div>
+            <h1>Dibyanshu</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">home</a></li>
-                    <li><a href="resume.html">resume</a></li>
+                    <li><a href="about.html">about</a></li>
                     <li><a href="projects.html">projects</a></li>
                     <li><a href="designs.html">designs</a></li>
                     <li><a href="updates.html">updates</a></li>
                 </ul>
             </nav>
+            <hr class="nav-line">
         </header>
 
-        <main>
-            <section class="works-grid">
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/IRAN - ISRAEL CONFLICT.gif" alt="iran-israel" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">IRAN-ISRAEL CONFLICT</h3>
-                            <p class="work-description">
-                                Promotional Material for a Group Discussion on "Iran-Israel Conflict" organized by SYNAPSE Society.
-                            </p>
-                        </div>
+        <main class="designs-grid">
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/IRAN - ISRAEL CONFLICT.gif" alt="IRAN-ISRAEL CONFLICT" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>IRAN-ISRAEL CONFLICT</h4>
+                        <p>Promotional Material for a Group Discussion on "Iran-Israel Conflict" organized by SYNAPSE Society.</p>
                     </div>
                 </div>
+                <h3 class="design-title">IRAN-ISRAEL CONFLICT</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/7 Circles.jpg" alt="7 circles" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">7 Circles</h3>
-                            <p class="work-description">
-                                I created this design for a random project but didn't use it there. Just obsessed and attracted to this one now.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/7 Circles.jpg" alt="7 Circles" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>7 Circles</h4>
+                        <p>I created this design for a random project but didn't use it there. Just obsessed and attracted to this one now.</p>
                     </div>
                 </div>
+                <h3 class="design-title">7 Circles</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/Divign.jpg" alt="divign" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">DIVIGN STUDIOS</h3>
-                            <p class="work-description">
-                                Created logo for a service providing startup based in Dubai.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/Divign.jpg" alt="DIVIGN STUDIOS" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>DIVIGN STUDIOS</h4>
+                        <p>Created logo for a service providing startup based in Dubai.</p>
                     </div>
                 </div>
+                <h3 class="design-title">DIVIGN STUDIOS</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/CRYPTO1.png" alt="red delta" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">RED DELTA</h3>
-                            <p class="work-description">
-                                Can't revel much but it's a logo for a project I am currently working on.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/CRYPTO1.png" alt="RED DELTA" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>RED DELTA</h4>
+                        <p>Can't revel much but it's a logo for a project I am currently working on.</p>
                     </div>
                 </div>
-                
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/VARHAD 1.png" alt="VARHAD LOGO" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">VARHAD LOGO</h3>
-                            <p class="work-description">
-                                Created logo for a bio-fertiliser based startup named Varhad.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="design-title">RED DELTA</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/JITSIE IITM AN.gif" alt="JITSIE" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">JITSIE</h3>
-                            <p class="work-description">
-                                Redesigned and worked on JITSIE's logo, making it usable for short video formats.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/VARHAD 1.png" alt="VARHAD LOGO" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>VARHAD LOGO</h4>
+                        <p>Created logo for a bio-fertiliser based startup named Varhad.</p>
                     </div>
                 </div>
+                <h3 class="design-title">VARHAD LOGO</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/lonely_art.jpeg" alt="THE LONELY ART" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">THE LONELY ART</h3>
-                            <p class="work-description">
-                                Just randomly designed an art work when I was feeling lonely so just named it "The Lonely Art"
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/JITSIE IITM AN.gif" alt="JITSIE" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>JITSIE</h4>
+                        <p>Redesigned and worked on JITSIE's logo, making it usable for short video formats.</p>
                     </div>
                 </div>
+                <h3 class="design-title">JITSIE</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/Unstoppable Her.png" alt="UNSTOPPABLE HER" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">UNSTOPPABLE HER</h3>
-                            <p class="work-description">
-                                Designed poster for the Debate Round organized by Synapse Society on Women's Day. Used over attractive colours for the first time.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/lonely_art.jpeg" alt="THE LONELY ART" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>THE LONELY ART</h4>
+                        <p>Just randomly designed an art work when I was feeling lonely so just named it "The Lonely Art"</p>
                     </div>
                 </div>
-                
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/NFT.png" alt="Shock" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">SHOCK CAT NFT</h3>
-                            <p class="work-description">
-                                Designed a NFT Token taking insipration from the shock cat meme.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="design-title">THE LONELY ART</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/THUMBNAIL - 26TH FEB.png" alt="thumbnail" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">YT Thumbnail - Napoleon</h3>
-                            <p class="work-description">
-                                Designed this thumbnail for a group discussion organised by Synapse Society.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/Unstoppable Her.png" alt="UNSTOPPABLE HER" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>UNSTOPPABLE HER</h4>
+                        <p>Designed poster for the Debate Round organized by Synapse Society on Women's Day. Used over attractive colours for the first time.</p>
                     </div>
                 </div>
+                <h3 class="design-title">UNSTOPPABLE HER</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/Virtual Abstraction.jpg" alt="abstraction" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">VIRTUAL ABSTRACTION</h3>
-                            <p class="work-description">
-                                This is what you create when u have nothing to do and your brain feels like creating some random things. Well this is what you get then.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/NFT.png" alt="SHOCK CAT NFT" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>SHOCK CAT NFT</h4>
+                        <p>Designed a NFT Token taking inspiration from the shock cat meme.</p>
                     </div>
                 </div>
+                <h3 class="design-title">SHOCK CAT NFT</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/JITSIE PITCH.png" alt="jitsie pitch" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">JITSIE Pitch Fest</h3>
-                            <p class="work-description">
-                                Designed this poster for the Pitch Fest for entrepreneurs, organized by JITSIE, Wadhwani Foundation, Blue Ocean and Karo Startup.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/THUMBNAIL - 26TH FEB.png" alt="YT Thumbnail - Napoleon" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>YT Thumbnail - Napoleon</h4>
+                        <p>Designed this thumbnail for a group discussion organised by Synapse Society.</p>
                     </div>
                 </div>
+                <h3 class="design-title">YT Thumbnail - Napoleon</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/INVITE.png" alt="varhad invite" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">VARHAD INVITE</h3>
-                            <p class="work-description">
-                                Paid work - Designed an invite poster for Varhad, for their stall at the Agroworld Exhibition.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/Virtual Abstraction.jpg" alt="VIRTUAL ABSTRACTION" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>VIRTUAL ABSTRACTION</h4>
+                        <p>This is what you create when u have nothing to do and your brain feels like creating some random things. Well this is what you get then.</p>
                     </div>
                 </div>
+                <h3 class="design-title">VIRTUAL ABSTRACTION</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/WadhwaniXJITSIE.jpeg" alt="yogabar" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">JITSIE X WADHWANI Podcast</h3>
-                            <p class="work-description">
-                                Designed this poster for JITSIE for a podcast featuring the founder of YOGABAR, Suhani Sampath.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/JITSIE PITCH.png" alt="JITSIE Pitch Fest" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>JITSIE Pitch Fest</h4>
+                        <p>Designed this poster for the Pitch Fest for entrepreneurs, organized by JITSIE, Wadhwani Foundation, Blue Ocean and Karo Startup.</p>
                     </div>
                 </div>
+                <h3 class="design-title">JITSIE Pitch Fest</h3>
+            </div>
 
-                <div class="work-card">
-                    <div class="work-image-container">
-                        <img src="assets/designs/CREATOR.png" alt="The Creator" class="modal-trigger">
-                    </div>
-                    <div class="work-details">
-                        <div>
-                            <h3 class="work-title">THE CREATOR</h3>
-                            <p class="work-description">
-                                Logo designed for an unreleased game named The Creator.
-                            </p>
-                        </div>
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/INVITE.png" alt="VARHAD INVITE" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>VARHAD INVITE</h4>
+                        <p>Paid work - Designed an invite poster for Varhad, for their stall at the Agroworld Exhibition.</p>
                     </div>
                 </div>
-            </section>
+                <h3 class="design-title">VARHAD INVITE</h3>
+            </div>
+
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/WadhwaniXJITSIE.jpeg" alt="JITSIE X WADHWANI Podcast" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>JITSIE X WADHWANI Podcast</h4>
+                        <p>Designed this poster for JITSIE for a podcast featuring the founder of YOGABAR, Suhani Sampath.</p>
+                    </div>
+                </div>
+                <h3 class="design-title">JITSIE X WADHWANI Podcast</h3>
+            </div>
+
+            <div class="design-card">
+                <div class="image-container">
+                    <img src="assets/designs/CREATOR.png" alt="THE CREATOR" class="modal-trigger">
+                    <div class="overlay">
+                        <h4>THE CREATOR</h4>
+                        <p>Logo designed for an unreleased game named The Creator.</p>
+                    </div>
+                </div>
+                <h3 class="design-title">THE CREATOR</h3>
+            </div>
         </main>
-        <footer class="footer">
-            <p>Designed by <a href="https://github.com/dkconnect" target="_blank" class="lucifer-link"><strong>Lucifer</strong></a></p>
-            <p>2025</p>
-        </footer>
-        <div id="imageModal" class="modal">
-            <span class="modal-close">&times;</span>
-            <img class="modal-content" id="modalImage">
-        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="img01">
     </div>
 
     <script>
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const closeBtn = document.querySelector('.modal-close');
-        const triggers = document.querySelectorAll('.modal-trigger');
 
-        triggers.forEach(trigger => {
-            trigger.addEventListener('click', function() {
-                modal.style.display = 'block';
+        var modal = document.getElementById("myModal");
+        var modalImgs = document.getElementsByClassName("modal-trigger");
+        var modalImg = document.getElementById("img01");
+
+        Array.from(modalImgs).forEach(function(img) {
+            img.onclick = function(){
+                modal.style.display = "flex";
                 modalImg.src = this.src;
-                modalImg.alt = this.alt;
-                document.body.style.overflow = 'hidden'; 
-            });
-        });
-        
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = ''; // Restore scrolling
-        });
-
-        // Close modal when clicking outside the image
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = ''; // Restore scrolling
             }
         });
+        var span = document.getElementsByClassName("close-button")[0];
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>

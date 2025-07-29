@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDRAVARMA X TUNTUN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/images/my_profile.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Courier Prime', monospace;
+            background-color: #F0F0F0;
+            color: #000000;
+            margin: 0;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;   
+            min-height: 100vh; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #A8FF60;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 10px 20px;
+            margin: 0 auto 30px auto; 
+            width: fit-content;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.1em;
+            font-weight: bold;
+            white-space: nowrap;
+            display: block;
+        }
+
+        .nav-line {
+            border: none;
+            border-top: 1px solid #C0C0C0;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .content-section {
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px auto;
+            max-width: 900px; 
+            text-align: left; 
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .content-section h2 {
+            font-size: 2.2em;
+            text-align: center; 
+            margin-bottom: 40px;
+            color: #000000;
+        }
+
+        .content-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            display: block; 
+            margin: 30px auto; 
+            border: 1px solid #C0C0C0;
+            border-radius: 10px;
+        }
+
+        .video-note {
+            text-align: center; 
+            font-size: 1.1em;
+            margin: 40px 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            nav {
+                max-width: 95%;
+                padding: 8px 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+            nav ul li a {
+                font-size: 1em;
+            }
+            .content-section {
+                padding: 20px;
+                margin: 30px auto;
+                border-radius: 15px;
+            }
+            .content-section h2 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            .content-section p {
+                font-size: 1em;
+            }
+            .video-note {
+                font-size: 1em;
+                margin: 30px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            .content-section {
+                padding: 15px;
+                margin: 20px auto;
+                border-radius: 10px;
+            }
+            .content-section h2 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+            .content-section p {
+                font-size: 0.9em;
+            }
+            .video-note {
+                font-size: 0.9em;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dibyanshu</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="resume.html">about</a></li>
+                    <li><a href="projects.html">projects</a></li>
+                    <li><a href="designs.html">designs</a></li>
+                    <li><a href="updates.html">updates</a></li>
+                </ul>
+            </nav>
+            <hr class="nav-line">
+        </header>
+
+        <main>
+            <div class="content-section">
+                <h2>INDRAVARMA X TUNTUN</h2>
+                <p>This is my first attempt at creating artwork. King Indravama is a character from the popular Indian cartoon Chhota Bheem, and Tuntun is another significant character from the same series. I wanted to explore a new perspective by reimagining them as a romantic couple.</p>
+                <p>The concept and design of Indravama are entirely my own, including the facial features and styling. Tuntun's concept, however, was inspired by an existing version I came across.</p>
+
+                <video controls muted playsinline preload="auto">
+                    <source src="assets/designs/indxtun/indxtun vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <p class="video-note">Before moving ahead, I request everyone to watch this video. You wil love it haha.</p>
+
+                <img src="assets/designs/indxtun/indravarma-process.png" alt="Indravama Comparison">
+
+                <p>I don't have the outline for Indravama's art, but I first created the base and then worked on adding stuff, shading and all that.</p>
+
+                <img src="assets/designs/indxtun/tuntun-process.png" alt="Tuntun Process Sketch">
+            </div>
+        </main>
+    </div>
+</body>
+</html>

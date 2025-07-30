@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/my_profile.png" type="image/png">
     <style>
-
         body {
             font-family: 'Courier Prime', monospace;
             background-color: #F0F0F0; 
@@ -48,7 +47,19 @@
             box-sizing: border-box;
         }
 
-        nav ul {
+        .sub-nav {
+            background-color: #E0E0E0;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 10px 20px;
+            margin: 0 auto 30px auto;
+            width: fit-content;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+
+        nav ul, .sub-nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -65,6 +76,19 @@
             display: block;
         }
 
+        .sub-nav ul li button {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1em;
+            font-weight: bold;
+            white-space: nowrap;
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Courier Prime', monospace;
+        }
+
         .nav-line {
             border: none;
             border-top: 1px solid #C0C0C0; 
@@ -73,7 +97,6 @@
         }
 
         .projects-grid {
-
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px; 
@@ -91,6 +114,10 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+        }
+
+        .project-card.hidden {
+            display: none;
         }
 
         .project-card .image-container {
@@ -173,18 +200,18 @@
         }
 
         @media (max-width: 768px) {
-            nav {
+            nav, .sub-nav {
                 max-width: 95%;
                 padding: 8px 15px;
             }
 
-            nav ul {
+            nav ul, .sub-nav ul {
                 flex-wrap: wrap;
                 gap: 15px;
                 justify-content: center;
             }
 
-            nav ul li a {
+            nav ul li a, .sub-nav ul li button {
                 font-size: 1em;
             }
 
@@ -226,14 +253,23 @@
                     <li><a href="resume.html">resume</a></li>
                     <li><a href="projects.html">projects</a></li>
                     <li><a href="designs.html">designs</a></li>
-                    <li><a href="#">updates</a></li>
+                    <li><a href="updates.html">updates</a></li>
+                </ul>
+            </nav>
+            <nav class="sub-nav">
+                <ul>
+                    <li><button class="filter-btn" data-filter="all">all</button></li>
+                    <li><button class="filter-btn" data-filter="generative">generative</button></li>
+                    <li><button class="filter-btn" data-filter="tools">tools</button></li>
+                    <li><button class="filter-btn" data-filter="games">games</button></li>
+                    <li><button class="filter-btn" data-filter="others">others</button></li>
                 </ul>
             </nav>
             <hr class="nav-line">
         </header>
 
         <main class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" data-category="generative">
                 <div class="image-container">
                     <a href="https://bit-city.vercel.app/"> 
                         <img src="assets/projects/bit-dot-city-20250713-201426.png" alt="bit-city">
@@ -246,7 +282,7 @@
                     <a href="https://bit-city.vercel.app/">Bit Dot Night</a> </h3>
             </div>
             
-            <div class="project-card">
+            <div class="project-card" data-category="games">
                 <div class="image-container">
                     <a href="https://dos-defender.vercel.app/"> 
                         <img src="assets/projects/DOS.png" alt="dos_defender">
@@ -259,7 +295,7 @@
                     <a href="https://dos-defender.vercel.app/">DOS Defender</a> </h3>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="tools">
                 <div class="image-container">
                     <a href="https://morses.vercel.app/">
                         <img src="assets/projects/morses.gif" alt="morses">
@@ -273,7 +309,7 @@
                 </h3>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="tools">
                 <div class="image-container">
                     <a href="https://img2xlsx.vercel.app/">
                         <img src="assets/projects/Untitled design.gif" alt="IMG2XLSX">
@@ -287,7 +323,7 @@
                 </h3>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="others">
                 <div class="image-container">
                     <a href="https://kinkxknow.vercel.app/">
                         <img src="assets/projects/KinkXKnow.png" alt="kinkxknow">
@@ -301,7 +337,7 @@
                 </h3>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="games">
                 <div class="image-container">
                     <a href="https://ai-tetris.vercel.app/">
                         <img src="assets/projects/Tetris_AI.png" alt="tetris_ai">
@@ -315,12 +351,11 @@
                 </h3>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-category="others">
                 <div class="image-container">
                     <a href="abcd.html">
                         <img src="assets/projects/nasa.jpg" alt="solarspace">
                     </a>
-                    
                     <div class="overlay">
                         <p>This was my submission for the Nasa Space Apps 2024. Made Using Javascript.</p>
                     </div>
@@ -331,5 +366,25 @@
             </div>
         </main>
     </div>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

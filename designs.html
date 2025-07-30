@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/my_profile.png" type="image/png">
     <style>
-
         body {
             font-family: 'Courier Prime', monospace;
             background-color: #F0F0F0;
@@ -48,7 +47,19 @@
             box-sizing: border-box;
         }
 
-        nav ul {
+        .sub-nav {
+            background-color: #E0E0E0;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 10px 20px;
+            margin: 0 auto 30px auto;
+            width: fit-content;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+
+        nav ul, .sub-nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -63,6 +74,20 @@
             font-weight: bold;
             white-space: nowrap;
             display: block;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .sub-nav ul li button {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1em;
+            font-weight: bold;
+            white-space: nowrap;
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Courier Prime', monospace;
         }
 
         .nav-line {
@@ -92,13 +117,17 @@
             text-align: center;
         }
 
+        .design-card.hidden {
+            display: none;
+        }
+
         .design-card .image-container {
             position: relative;
             width: 100%;
             aspect-ratio: 1 / 1;
             border-radius: 35px;
             overflow: hidden;
-            cursor: pointer; 
+            cursor: pointer;
         }
 
         .design-card img {
@@ -126,7 +155,7 @@
             justify-content: center;
             padding: 15px;
             box-sizing: border-box;
-            pointer-events: none; 
+            pointer-events: none;
         }
 
         .design-card .overlay h4 {
@@ -161,14 +190,14 @@
         }
 
         .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
+            display: none;
+            position: fixed;
+            z-index: 1000;
             left: 0;
             top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
+            width: 100%;
+            height: 100%;
+            overflow: auto;
             background-color: rgba(0,0,0,0.8);
             justify-content: center;
             align-items: center;
@@ -202,17 +231,17 @@
 
         @media (max-width: 1024px) {
             .designs-grid {
-                grid-template-columns: repeat(auto-fit, minminmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
-            nav {
+            nav, .sub-nav {
                 max-width: 95%;
                 padding: 8px 15px;
             }
 
-            nav ul {
+            nav ul, .sub-nav ul {
                 flex-wrap: wrap;
                 gap: 15px;
                 justify-content: center;
@@ -220,6 +249,10 @@
 
             nav ul li a {
                 font-size: 1em;
+            }
+
+            .sub-nav ul li button {
+                font-size: 0.9em;
             }
 
             .container {
@@ -235,15 +268,19 @@
                 padding: 10px;
                 border-radius: 30px;
             }
+
             .design-card .image-container {
-                 border-radius: 25px;
+                border-radius: 25px;
             }
+
             .design-card .design-title {
                 font-size: 1.3em;
             }
+
             .design-card .overlay h4 {
                 font-size: 1.1em;
             }
+
             .design-card .overlay p {
                 font-size: 0.9em;
             }
@@ -253,6 +290,7 @@
             header h1 {
                 font-size: 2.5em;
             }
+
             .close-button {
                 font-size: 30px;
                 top: 15px;
@@ -274,10 +312,19 @@
                     <li><a href="updates.html">updates</a></li>
                 </ul>
             </nav>
+            <nav class="sub-nav">
+                <ul>
+                    <li><button class="filter-btn" data-filter="all">all</button></li>
+                    <li><button class="filter-btn" data-filter="logos">logos</button></li>
+                    <li><button class="filter-btn" data-filter="promo">promo materials</button></li>
+                    <li><button class="filter-btn" data-filter="artworks">artworks</button></li>
+                    <li><button class="filter-btn" data-filter="eroticas">eroticas</button></li>
+                </ul>
+            </nav>
             <hr class="nav-line">
         </header>
         <main class="designs-grid">
-            <div class="design-card">
+            <div class="design-card" data-category="promo">
                 <div class="image-container">
                     <img src="assets/designs/MEETUP.png" alt="meetup" class="modal-trigger">
                     <div class="overlay">
@@ -287,8 +334,7 @@
                 </div>
                 <h3 class="design-title">WILDLIFE MEETUP</h3>
             </div>
-            
-            <div class="design-card">
+            <div class="design-card" data-category="artworks">
                 <div class="image-container">
                     <img src="assets/designs/indravarma x tuntun.png" alt="indxtun" class="modal-trigger">
                     <div class="overlay">
@@ -298,8 +344,7 @@
                 </div>
                 <h3 class="design-title"><a href="assets/designs/indxtun vid.gif">INDRAVARMA X TUNTUN</a></h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="eroticas">
                 <div class="image-container">
                     <img src="assets/designs/skt - erotic.png" alt="skt-erotic" class="modal-trigger">
                     <div class="overlay">
@@ -309,8 +354,7 @@
                 </div>
                 <h3 class="design-title">SKT - EROTIC</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="eroticas">
                 <div class="image-container">
                     <img src="the satisfied one.png" alt="image" class="modal-trigger">
                     <div class="overlay">
@@ -320,8 +364,7 @@
                 </div>
                 <h3 class="design-title">THE SATISFIED ONE</h3>
             </div>
-            
-            <div class="design-card">
+            <div class="design-card" data-category="artworks">
                 <div class="image-container">
                     <img src="assets/designs/SVB.png" alt="SVB" class="modal-trigger">
                     <div class="overlay">
@@ -331,8 +374,7 @@
                 </div>
                 <h3 class="design-title">SUPERMAN VS BATMAN</h3>
             </div>
-            
-            <div class="design-card">
+            <div class="design-card" data-category="artworks">
                 <div class="image-container">
                     <img src="assets/designs/superman.png" alt="superman" class="modal-trigger">
                     <div class="overlay">
@@ -342,8 +384,7 @@
                 </div>
                 <h3 class="design-title">SUPERMAN</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="promo">
                 <div class="image-container">
                     <img src="assets/designs/brits.gif" alt="brits" class="modal-trigger">
                     <div class="overlay">
@@ -353,8 +394,7 @@
                 </div>
                 <h3 class="design-title">COLONIZATION DEBATE</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="promo">
                 <div class="image-container">
                     <img src="assets/designs/iranxisrael.gif" alt="IRAN-ISRAEL CONFLICT" class="modal-trigger">
                     <div class="overlay">
@@ -364,8 +404,7 @@
                 </div>
                 <h3 class="design-title">IRAN-ISRAEL CONFLICT</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="artworks">
                 <div class="image-container">
                     <img src="assets/designs/7 Circles.jpg" alt="7 Circles" class="modal-trigger">
                     <div class="overlay">
@@ -375,8 +414,7 @@
                 </div>
                 <h3 class="design-title">7 Circles</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="logos">
                 <div class="image-container">
                     <img src="assets/designs/Divign.jpg" alt="DIVIGN STUDIOS" class="modal-trigger">
                     <div class="overlay">
@@ -386,19 +424,17 @@
                 </div>
                 <h3 class="design-title">DIVIGN STUDIOS</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="logos">
                 <div class="image-container">
                     <img src="assets/designs/CRYPTO1.png" alt="RED DELTA" class="modal-trigger">
                     <div class="overlay">
                         <h4>RED DELTA</h4>
-                        <p>Can't revel much but it's a logo for a project I am currently working on.</p>
+                        <p>Can't reveal much but it's a logo for a project I am currently working on.</p>
                     </div>
                 </div>
                 <h3 class="design-title">RED DELTA</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="logos">
                 <div class="image-container">
                     <img src="assets/designs/VARHAD 1.png" alt="VARHAD LOGO" class="modal-trigger">
                     <div class="overlay">
@@ -408,8 +444,7 @@
                 </div>
                 <h3 class="design-title">VARHAD LOGO</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="logos">
                 <div class="image-container">
                     <img src="assets/designs/JITSIE IITM AN.gif" alt="JITSIE" class="modal-trigger">
                     <div class="overlay">
@@ -419,8 +454,7 @@
                 </div>
                 <h3 class="design-title">JITSIE</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="artworks">
                 <div class="image-container">
                     <img src="assets/designs/lonely_art.jpeg" alt="THE LONELY ART" class="modal-trigger">
                     <div class="overlay">
@@ -430,8 +464,7 @@
                 </div>
                 <h3 class="design-title">THE LONELY ART</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="promo">
                 <div class="image-container">
                     <img src="assets/designs/Unstoppable Her.png" alt="UNSTOPPABLE HER" class="modal-trigger">
                     <div class="overlay">
@@ -441,8 +474,7 @@
                 </div>
                 <h3 class="design-title">UNSTOPPABLE HER</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="artworks">
                 <div class="image-container">
                     <img src="assets/designs/NFT.png" alt="SHOCK CAT NFT" class="modal-trigger">
                     <div class="overlay">
@@ -452,8 +484,7 @@
                 </div>
                 <h3 class="design-title">SHOCK CAT NFT</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="promo">
                 <div class="image-container">
                     <img src="assets/designs/THUMBNAIL - 26TH FEB.png" alt="YT Thumbnail - Napoleon" class="modal-trigger">
                     <div class="overlay">
@@ -463,8 +494,7 @@
                 </div>
                 <h3 class="design-title">YT Thumbnail - Napoleon</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="artworks">
                 <div class="image-container">
                     <img src="assets/designs/Virtual Abstraction.jpg" alt="VIRTUAL ABSTRACTION" class="modal-trigger">
                     <div class="overlay">
@@ -474,8 +504,7 @@
                 </div>
                 <h3 class="design-title">VIRTUAL ABSTRACTION</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="promo">
                 <div class="image-container">
                     <img src="assets/designs/JITSIE PITCH.png" alt="JITSIE Pitch Fest" class="modal-trigger">
                     <div class="overlay">
@@ -485,8 +514,7 @@
                 </div>
                 <h3 class="design-title">JITSIE Pitch Fest</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="promo">
                 <div class="image-container">
                     <img src="assets/designs/INVITE.png" alt="VARHAD INVITE" class="modal-trigger">
                     <div class="overlay">
@@ -496,8 +524,7 @@
                 </div>
                 <h3 class="design-title">VARHAD INVITE</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="promo">
                 <div class="image-container">
                     <img src="assets/designs/WadhwaniXJITSIE.jpeg" alt="JITSIE X WADHWANI Podcast" class="modal-trigger">
                     <div class="overlay">
@@ -507,8 +534,7 @@
                 </div>
                 <h3 class="design-title">JITSIE X WADHWANI Podcast</h3>
             </div>
-
-            <div class="design-card">
+            <div class="design-card" data-category="logos">
                 <div class="image-container">
                     <img src="assets/designs/CREATOR.png" alt="THE CREATOR" class="modal-trigger">
                     <div class="overlay">
@@ -527,7 +553,6 @@
     </div>
 
     <script>
-
         var modal = document.getElementById("myModal");
         var modalImgs = document.getElementsByClassName("modal-trigger");
         var modalImg = document.getElementById("img01");
@@ -538,15 +563,36 @@
                 modalImg.src = this.src;
             }
         });
+
         var span = document.getElementsByClassName("close-button")[0];
         span.onclick = function() {
-          modal.style.display = "none";
+            modal.style.display = "none";
         }
+
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const designCards = document.querySelectorAll('.design-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+
+                const filter = button.getAttribute('data-filter');
+
+                designCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

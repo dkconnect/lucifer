@@ -25,7 +25,6 @@
 
         .container {
             width: 100%;
-
             max-width: 1200px; 
             text-align: center;
             padding: 20px;
@@ -206,9 +205,86 @@
                 padding: 0 10px;
             }
         }
+
+        /* === NEW SPLASH SCREEN STYLES === */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #F0F0F0; /* Match body background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            font-family: 'Courier Prime', monospace;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .splash-content {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            max-width: 90%;
+            width: 450px;
+            box-sizing: border-box;
+        }
+
+        .splash-content h2 {
+            font-size: 1.5em;
+            color: #000000;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .splash-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+
+        .splash-button.new-site {
+            background-color: #A8FF60; /* Green from nav */
+            color: #000000;
+            border: none;
+        }
+        .splash-button.new-site:hover {
+            background-color: #97e657;
+        }
+
+        .splash-button.old-site {
+            background-color: #FF6699; /* Pink from social */
+            color: #FFFFFF;
+            border: none;
+        }
+        .splash-button.old-site:hover {
+            background-color: #e65c8a;
+        }
+        /* === END SPLASH SCREEN STYLES === */
+
     </style>
 </head>
 <body>
+
+    <div id="splash-screen">
+        <div class="splash-content">
+            <h2>This is my old portfolio version</h2>
+            <a href="https://dibyanshu-luci.vercel.app/" class="splash-button new-site" target="_blank">Checkout the new one</a>
+            <button id="continue-btn" class="splash-button old-site">Continue to this site</button>
+        </div>
+    </div>
     <div class="container">
         <header>
             <h1>Dibyanshu</h1>
@@ -252,5 +328,11 @@
             </section>
         </main>
     </div>
-</body>
+
+    <script>
+        document.getElementById('continue-btn').addEventListener('click', function() {
+            document.getElementById('splash-screen').style.display = 'none';
+        });
+    </script>
+    </body>
 </html>
